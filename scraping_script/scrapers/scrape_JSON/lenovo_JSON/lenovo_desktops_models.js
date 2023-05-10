@@ -1,0 +1,4 @@
+const { lenovoCompsRecursion } = require('./lenovo_recursion.js')
+const url = (i) => `https://openapi.lenovo.com/us/en/ofp/search/dlp/product/query/get/_tsc?pageFilterId=685fa71a-ea34-44ad-b890-c38ba2c81696&seriesCode=&params=%257B%2522classificationGroupIds%2522%253A%2522%2522%252C%2522pageFilterId%2522%253A%2522685fa71a-ea34-44ad-b890-c38ba2c81696%2522%252C%2522facets%2522%253A%255B%257B%2522facetId%2522%253A%2522727%2522%252C%2522selectedValues%2522%253A%2522100.0-299.991%252C300.0-499.991%252C500.0-799.991%252C800.0-999.991%252C1000.0-1499.991%252C1500.0-1999.991%252C2000.0-4999.991%2522%257D%255D%252C%2522page%2522%253A${i}%252C%2522pageSize%2522%253A100%252C%2522init%2522%253Afalse%252C%2522sorts%2522%253A%255B%2522bestSelling%2522%255D%252C%2522version%2522%253A%2522v2%2522%252C%2522seriesCode%2522%253A%2522%2522%257D`
+
+module.exports.lenovo_desktop_models = async () => await lenovoCompsRecursion(1, 3, url)

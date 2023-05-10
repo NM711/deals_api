@@ -1,0 +1,16 @@
+const { getJsonData } = require('../../../skeletons/scrapeJSON.js')
+const { hp_api_skeleton_scrape_computers } = require('./hp_api_scrape.js')
+const { requestOptions_GET } = require('../../scraping_header.js')
+
+const first = `https://www.hp.com/us-en/shop/HPServices?_=1680393409101&action=cupids&catentryId=3074457345620106819,3074457345620108824,3074457345620108825,3074457345620200820,3074457345620202318,3074457345620235322,3074457345620235323,3074457345620283824,3074457345620283825,3074457345620365320,3074457345620380839,3074457345620646818&modelId=&storeId=10151&catalogId=10051&langId=-1`
+const second = `https://www.hp.com/us-en/shop/HPServices?_=1680391561796&action=pid&catentryId=3074457345619916345,3074457345620106818,3074457345620106820,3074457345620200821,3074457345620231825,3074457345620245321,3074457345620360820,3074457345620699819,3074457345620699820,3074457345620699821,3074457345620699822&modelId=&storeId=10151&catalogId=10051&langId=-1`
+const third = `https://www.hp.com/us-en/shop/HPServices?_=1680393419024&action=pid&catentryId=3074457345619916343,3074457345620086819,3074457345620106821,3074457345620108823,3074457345620108826,3074457345620267324,3074457345620592831,3074457345620639819,3074457345620690320,3074457345620737824,3074457345620754326,3074457345620754332&modelId=&storeId=10151&catalogId=10051&langId=-1`
+
+const urls = [first, second, third]
+// maybe add some automation like in the monitos module
+
+module.exports.hp_envy_omen_victus_desktops = async () => {
+    urls.forEach(async (url) => {
+        await getJsonData(url, requestOptions_GET, hp_api_skeleton_scrape_computers)
+    })
+}
